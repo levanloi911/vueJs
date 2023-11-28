@@ -3,7 +3,7 @@ import AnimalCollectionVue from "../components/AnimalCollection.vue";
 import FoodItemsVue from "../components/FoodItems.vue";
 import Login from "../components/login/index.vue";
 import signUp from "../components/signUp/index.vue";
-
+import Home from "../components/Home/index.vue";
 
 export const router = createRouter({
   history: createWebHistory(),
@@ -12,5 +12,6 @@ export const router = createRouter({
       { path: '/food', component: FoodItemsVue },
       { path: '/login', component: Login },
       { path: '/signup', component: signUp },
+      { path: '/home', component: Home },
   ]
 });

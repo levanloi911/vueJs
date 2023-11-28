@@ -1,10 +1,7 @@
 <script>
 import axios from 'axios';
 export default {
-  components:{
-    Header,
-    Footer
-  },
+ 
   data() {
     return {
       products: [],

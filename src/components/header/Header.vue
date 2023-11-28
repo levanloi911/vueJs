@@ -4,7 +4,7 @@
       <img src="../../../public/Logo.png" alt="Your Logo" class="logo"  />
       <nav>
         <ul>
-          <li><a href="/">Trang chủ</a></li>
+          <li><a href="/home">Trang chủ</a></li>
           <li><a href="/products">Sản phẩm</a></li>
           <li><a href="/about">Về chúng tôi</a></li>
           <li><a href="/contact">Liên hệ</a></li>
