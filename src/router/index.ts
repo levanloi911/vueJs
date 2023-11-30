@@ -15,3 +15,4 @@ export const router = createRouter({
       { path: '/home', component: Home },
   ]
 });
+export default router;

@@ -1,5 +1,6 @@
 <script>
-import axios from 'axios';
+import axiosInstance from './../../baseAxios/index';
+import { ref, watchEffect } from 'vue';
 export default {
  
   data() {
@@ -7,12 +8,30 @@ export default {
       products: [],
     };
   },
+  setup() {
+    const count = ref(0);
+    // Sử dụng watchEffect để theo dõi biến count
+    watchEffect(() => {
+      console.log(`Count changed1`);
+    },  {
+    // Thêm dependencies
+    flush: 'post', // Tùy chọn flush
+    deps: [count],
+  });
+
+    return {
+      count,
+      increment() {
+        count.value++;
+      },
+    };
+  },
   mounted() {
     // Đường dẫn tới tệp JSON giả mạo
-    const jsonFilePath = '/mock.json';
+    const jsonFilePath = '/product';
 
     // Sử dụng axios để đọc dữ liệu từ tệp JSON
-    axios.get(jsonFilePath)
+    axiosInstance.get(jsonFilePath)
       .then(response => {
         // Gán dữ liệu từ response vào biến products
         this.products = response.data;
@@ -34,6 +53,8 @@ export default {
     <div class="main-body">
     <section class="featured-products">
       <div class="container">
+        <p>Count: {{ count }}</p>
+        <button @click="increment">Increment</button>
         <h2>Sản phẩm Nổi bật</h2>
         <!-- Hiển thị danh sách sản phẩm nổi bật -->
         <!-- Ví dụ: -->
